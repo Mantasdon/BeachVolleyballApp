@@ -16,7 +16,7 @@ class MenuActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu)
         val btnStats = findViewById<Button>(R.id.btnStats)
-
+        val btnCreatePlayer = findViewById<Button>(R.id.btnCreatePlayer)
         val btnAddStats = findViewById<Button>(R.id.btnAddStats)
         btnAddStats.setOnClickListener {
             val intent = Intent(this,AddStatsActivity::class.java)
@@ -28,7 +28,10 @@ class MenuActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-
+        btnCreatePlayer.setOnClickListener {
+            val intent = Intent(this,AddPlayersActivity::class.java)
+            startActivity(intent)
+        }
 
     }
 

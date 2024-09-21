@@ -1,0 +1,21 @@
+package com.example.naujasprojektas
+
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.naujasprojektas.db.Player
+import com.example.naujasprojektas.db.PlayerDao
+import kotlinx.coroutines.launch
+
+class PlayerViewModel(private val dao:PlayerDao): ViewModel() {
+    val players = dao.getAllPlayers()
+    fun insertPlayer(player: Player) = viewModelScope.launch {
+        dao.insertPlayer(player)
+    }
+    fun updatePlayer(player: Player) = viewModelScope.launch {
+        dao.updatePlayer(player)
+    }
+    fun deletePlayer(player: Player) = viewModelScope.launch {
+        dao.deletePlayer(player)
+    }
+}
